@@ -1,8 +1,9 @@
 #include "Bank.h"
 
-CBank::CBank()
+CBank::CBank(IStrategy* currentPrimitive)
 {
 	m_clients = std::vector<CBankClient>();
+	m_primitive = currentPrimitive;
 	m_totalBalance = 0;
 }
 
@@ -12,12 +13,15 @@ CBankClient* CBank::CreateClient()
 	unsigned clientId = unsigned(m_clients.size());
 	CBankClient* client = new CBankClient(this, clientId);
 	m_clients.push_back(*client);
+	m_threads.push_back(client->m_handle);
 	return client;
 }
 
 
 void CBank::UpdateClientBalance(CBankClient &client, int value)
 {
+	m_primitive->Enter();
+
 	int totalBalance = GetTotalBalance();
 	std::cout << "Client " << client.GetId() << " initiates reading total balance. Total = " << totalBalance << "." << std::endl;
 	
@@ -35,6 +39,21 @@ void CBank::UpdateClientBalance(CBankClient &client, int value)
 	}
 
 	SetTotalBalance(totalBalance);
+
+	m_primitive->Release();
+}
+
+void CBank::Wait()
+{
+	WaitForMultipleObjects(m_threads.size(), m_threads.data(), true, INFINITE);
+}
+
+CBank::~CBank()
+{
+	for (auto thread : m_threads)
+	{
+		CloseHandle(thread);
+	}
 }
 
 
@@ -51,5 +70,5 @@ void CBank::SetTotalBalance(int value)
 
 void CBank::SomeLongOperations()
 {
-	// TODO
+	Sleep(2000);
 }

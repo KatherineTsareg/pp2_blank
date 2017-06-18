@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Primitives">
+      <UniqueIdentifier>{f1350f85-7789-49c9-819b-5eda28839bb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,6 +33,21 @@
     <ClInclude Include="BankClient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SemaphoreStrategy.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="MutexStrategy.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSectionStrategy.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="IStrategy.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="EventStrategy.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -43,6 +61,18 @@
     </ClCompile>
     <ClCompile Include="BankClient.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CriticalSectionStrategy.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="MutexStrategy.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="SemaphoreStrategy.cpp">
+      <Filter>Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="EventStrategy.cpp">
+      <Filter>Primitives</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -147,13 +147,22 @@
   <ItemGroup>
     <ClInclude Include="Bank.h" />
     <ClInclude Include="BankClient.h" />
+    <ClInclude Include="CriticalSectionStrategy.h" />
+    <ClInclude Include="EventStrategy.h" />
+    <ClInclude Include="IStrategy.h" />
+    <ClInclude Include="MutexStrategy.h" />
+    <ClInclude Include="SemaphoreStrategy.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bank.cpp" />
     <ClCompile Include="BankClient.cpp" />
+    <ClCompile Include="CriticalSectionStrategy.cpp" />
+    <ClCompile Include="EventStrategy.cpp" />
+    <ClCompile Include="MutexStrategy.cpp" />
     <ClCompile Include="PP2.cpp" />
+    <ClCompile Include="SemaphoreStrategy.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
